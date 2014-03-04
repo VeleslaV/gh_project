@@ -1,0 +1,5 @@
+_main:
+      pattern: /
+      defaults: {_controller: VelJoGHProjectBundle:Main:main}
+      options:
+            expose: true

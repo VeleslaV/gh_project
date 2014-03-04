@@ -1,0 +1,12 @@
+{% extends 'VelJoGHProjectBundle::index.html.twig' %}
+
+{% block container %}
+    {% if pageData.error is defined %}
+        <b>{{ pageData.error  }}</b>1
+    {% else %}
+        <div class="">
+            <b>{{ pageData.sectionTitle }}</b><br>
+            <b>{{ pageData.sectionBody }}</b>
+        </div>
+    {% endif %}
+{% endblock container %}

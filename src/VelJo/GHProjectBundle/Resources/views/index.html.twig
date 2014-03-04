@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="VelJo">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <title>{% block title %}Theme Template for Bootstrap{% endblock title%}</title>
+
+        {% block stylesheets %}
+            <!-- Bootstrap core CSS -->
+            {% stylesheets '@bootstrap_min_css' %}
+                <link rel="stylesheet" href="{{ asset_url }}"/>
+            {% endstylesheets %}
+
+            <!-- Custom styles for this template -->
+            {% stylesheets '@VelJoGHProjectBundle/Resources/public/css/style.css' output='css/style.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}"/>
+            {% endstylesheets %}
+
+            {% stylesheets '@FOSCommentBundle/Resources/assets/css/comments.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% endblock stylesheets %}
+
+        {% block javascripts %}
+            <!-- Jquery scripts -->
+            {% javascripts '@jquery_min_js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
+            <!-- Bootstrap scripts -->
+            {% javascripts '@bootstrap_min_js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
+            <!-- Custom scripts for this template -->
+            {% javascripts '@VelJoGHProjectBundle/Resources/public/js/actions.js' output='js/actions.js' %}
+                <script type="text/javascript" src="{{asset_url}}"></script>
+            {% endjavascripts %}
+            {% javascripts '@VelJoGHProjectBundle/Resources/public/js/jquery.highlight.js' output='js/jquery.highlight.js' %}
+                <script type="text/javascript" src="{{asset_url}}"></script>
+            {% endjavascripts %}
+            {% javascripts '@VelJoGHProjectBundle/Resources/public/js/jquery.cookies.js' output='js/jquery.cookies.js' %}
+                <script type="text/javascript" src="{{asset_url}}"></script>
+            {% endjavascripts %}
+
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+        {% endblock javascripts %}
+    </head>
+    <body>
+        {{ include ('VelJoGHProjectBundle:Modules:navbar.html.twig') }}
+        {% block body %}
+            <div id="mainWrapper" class="container">
+                <div class="col-xs-12 {% if app.request.get('_route') != "_gbook" %}col-sm-9{% endif %}">
+                        {% block container %}{% endblock container %}
+                </div>
+                <div class="clr"></div>
+            </div>
+        {% endblock body %}
+        {{ include ('VelJoGHProjectBundle:Modules:footer.html.twig') }}
+    </body>
+</html>
