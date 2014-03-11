@@ -1,3 +1,7 @@
+veljo_user:
+    resource: "@VelJoUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 veljo_ghproject:
     resource: "@VelJoGHProjectBundle/Resources/config/routing.yml"
     prefix:   /

@@ -74,6 +74,28 @@ fos_comment:
             comment: VelJo\GHProjectBundle\Entity\Comment
             thread: VelJo\GHProjectBundle\Entity\Thread
 
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: VelJo\UserBundle\Entity\User
+
+    service:
+        mailer: fos_user.mailer.twig_swift
+
+    registration:
+        confirmation:
+            enabled:    true
+
+            from_email:
+                address:        robot@veljo.loc
+                sender_name:    VelJo Project Registration
+
+    resetting:
+        email:
+            from_email:
+                address:        robot@veljo.loc
+                sender_name:    VelJo Project Resetting
+
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -163,8 +185,11 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
+    disable_delivery:  false
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    port:      %mailer_port%
+    encryption: %mailer_encryption%
     spool:     { type: memory }
