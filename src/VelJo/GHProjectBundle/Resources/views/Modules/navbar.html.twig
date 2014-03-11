@@ -2,10 +2,10 @@
     {% if is_granted('ROLE_ADMIN') %}
         <div id="admin_bar">
             <div class="container">
-                <img src="{{ 'bundles/veljoghproject/images/slide_up.png' | imagine_filter('min_thumb') }}" class="" id="slideBtn">
+                <img src="{{ 'bundles/veljouser/images/slide.png' | imagine_filter('min_thumb') }}" class="" id="slideBtn">
                 <ul class="nav navbar-nav">
                     <li>
-                        <img src="{{ 'bundles/veljoghproject/images/settings.png' | imagine_filter('min_thumb') }}" class="settings_img">
+                        <img src="{{ 'bundles/veljouser/images/settings.png' | imagine_filter('min_thumb') }}" class="settings_img">
                     </li>
                     <li {% if app.request.get('_route') == "sonata_admin_dashboard" %}class="active"{% endif %}>
                         <a href="{{ path('sonata_admin_dashboard') }}" target="_blank">Admin dashboard</a>
@@ -17,7 +17,8 @@
     <div class="container">
 
         <div class="navbar-header">
-            <a class="navbar-brand">VelJo Project</a>
+            <img src="{{ 'bundles/veljoghproject/images/veljo_logo.png' | imagine_filter('min_thumb') }}" class="logo_img">
+            <a href="{{ path('_main') }}" class="navbar-brand-new">VelJo Project</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

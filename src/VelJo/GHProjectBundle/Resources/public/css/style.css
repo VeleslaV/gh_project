@@ -126,6 +126,23 @@ textarea.gbook_txra {
 }
 .navbar-header {
     cursor: default;
+    width: 190px !important;
+}
+.navbar-header .logo_img{
+    float: left;
+    margin: 0px 0px 0px 0px;
+}
+
+.navbar-brand-new {
+    float: left;
+    padding: 5px 5px 5px 15px;
+    margin: 11px 0px 0px -12px;
+    font-size: 20px;
+    line-height: 18px;
+    border-bottom: 2px solid #1778CC;
+}
+.navbar-brand-new:hover {
+    text-decoration: none;
 }
 
 .nav_user_data {
