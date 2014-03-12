@@ -2,10 +2,11 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @VelJoGHProjectBundle/Resources/config/services.xml }
+    - { resource: @VelJoGHProjectBundle/Resources/config/admin.xml }
 
 framework:
     #esi:            ~
-    translator:      ~
+    translator:      { fallback: %locale% }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -109,6 +110,7 @@ sonata_block:
 
         sonata.block.service.text:
         sonata.block.service.rss:
+        sonata.block.service.menu:
 
         # Some specific block from the SonataMediaBundle
         #sonata.media.block.media:
@@ -116,7 +118,7 @@ sonata_block:
         #sonata.media.block.feature_media:
 
 sonata_admin:
-    title:      VelJo GHProject Bundle
+    title:      GHProject Admin Area
     title_logo: bundles/veljoghproject/images/veljo_logo.png
 
     #security:
@@ -130,6 +132,21 @@ sonata_admin:
 
     # set to true to persist filter settings per admin module in the user's session
     persist_filters: false
+
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content:
+                        <h1>Welcome to the Admin Area</h1>
+
+raindrop_sonata_theme:
+    theme: spacelab
 
 knp_menu:
     twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer

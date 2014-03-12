@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Raindrop\SonataThemeBundle\RaindropSonataThemeBundle('SonataAdminBundle'),
             new VelJo\GHProjectBundle\VelJoGHProjectBundle(),
             new VelJo\UserBundle\VelJoUserBundle(),
         );

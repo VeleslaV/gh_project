@@ -41,8 +41,9 @@
         "vlabs/media-bundle": "dev-master",
         "imagine/imagine": "0.4.1",
         "jms/serializer-bundle": "0.13.*@dev",
-        "sonata-project/admin-bundle": "dev-master",
-        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
+        "sonata-project/admin-bundle": "2.2.*@dev",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "raindrop/sonata-theme-bundle": "1.1.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
