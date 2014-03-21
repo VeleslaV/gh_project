@@ -1,5 +1,23 @@
 _main:
       pattern: /
       defaults: {_controller: VelJoGHProjectBundle:Main:main}
-      options:
-            expose: true
+
+_news:
+      pattern: /news/
+      defaults: {_controller: VelJoGHProjectBundle:Main:news}
+
+_about:
+      pattern: /about/
+      defaults: {_controller: VelJoGHProjectBundle:Main:about}
+
+_contact:
+      pattern: /contact/
+      defaults: {_controller: VelJoGHProjectBundle:Main:contact}
+
+_search:
+        pattern: /search/
+        defaults: {_controller: VelJoGHProjectBundle:Main:searchForm}
+
+_search_keyword:
+        pattern: /search/{keyword}/
+        defaults: {_controller: VelJoGHProjectBundle:Main:searchResult}

@@ -5,7 +5,8 @@
         <b>{{ pageData.error }}</b>
     {% else %}
         <div class="">
-            {{ render(controller('VelJoGHProjectBundle:Main:searchForm')) }}
+            <b>{{ pageData.sectionTitle }}</b><br>
+            <b>{{ pageData.sectionBody }}</b>
         </div>
     {% endif %}
 {% endblock container %}

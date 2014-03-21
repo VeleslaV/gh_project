@@ -1,0 +1,37 @@
+{% extends 'VelJoGHProjectBundle::index.html.twig' %}
+
+{% block container %}
+    {% if resultData.error is defined %}
+        <b>{{ resultData.error  }}</b>
+    {% else %}
+        <div class="search_article_container">
+            <div class="kwd_title">{{ kwd }}</div>
+            <div class="tabs_wrapper">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li><a href="#info" data-toggle="tab">Info</a></li>
+                    <li><a href="#photos" data-toggle="tab">Photos</a></li>
+                    <li class="active"><a href="#albums" data-toggle="tab">Albums</a></li>
+                    <li><a href="#else" data-toggle="tab">Else</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane" id="info">{{ kwd }} info</div>
+                    <div class="tab-pane" id="photos">{{ kwd }} Photos</div>
+                    <div class="tab-pane active" id="albums">
+                        {% if parseResult is defined %}
+                            {% for data in parseResult.albums %}
+                                <div class="album_wrapper">
+                                    <img src="{{ data.img|raw }}" class="album_img">
+                                    <div class="album_name">{{ data.name|raw }}</div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="clr"></div>
+                    </div>
+                    <div class="tab-pane" id="else">{{ kwd }} else...</div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock container %}

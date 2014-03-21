@@ -13,21 +13,6 @@ h1, h2, h3 {
 input.has_error {
     background-color: #f3c6c7;
 }
-.page-header {
-    margin-top: 0 !important;
-}
-.row {
-    margin-bottom: 10px;
-}
-.theme-dropdown .dropdown-menu {
-    display: block;
-    position: static;
-    margin-bottom: 20px;
-}
-
-.theme-showcase > p > .btn {
-    margin: 5px 0;
-}
 #mainWrapper {
     min-height: 110%;
     padding: 90px 0px 55px 0px;
@@ -153,12 +138,8 @@ textarea.gbook_txra {
 
 #sliderWrapper {
     background: #fff;
-    margin: -35px 0px 0px 0px;
+    margin:70px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 1030;
 }
 #slider {
     margin: 0px auto 0px auto;
@@ -351,8 +332,49 @@ span.current {
     margin: 0px 0px 0px 0px;
 }
 input#form_keyword {
-    width: 204px;
+    width: 712px;
+    height: 50px;
+    padding: 10px 10px 10px 10px;
 }
+button#form_button {
+    height: 50px;
+}
+.search_from_wrapper {
+    width: 800px;
+    margin: 0px auto;
+}
+
+.kwd_title {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0px 0px 20px 0px;
+}
+.album_wrapper {
+    float: left;
+    margin: 0px 25px 10px 0px;
+    height: 250px;
+}
+.album_wrapper {
+    float: left;
+    margin: 0px 35px 35px 0px;
+    height: 250px;
+}
+.album_wrapper:nth-child(5n) {
+    margin: 0px 0px 10px 0px;
+}
+.album_img{
+    height: 200px;
+    width: 200px;
+}
+.album_name{
+    display: block;
+    height: 50px;
+    width: 200px;
+    background: #E9E9E9;
+    padding: 5px;
+    box-shadow: 0px 7px 7px -7px #000 inset;
+}
+
 #moreArticlesContainer {
     text-align: center;
     margin: -40px 0px 30px 0px;
