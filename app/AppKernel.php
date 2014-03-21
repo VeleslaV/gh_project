@@ -34,6 +34,9 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Raindrop\SonataThemeBundle\RaindropSonataThemeBundle('SonataAdminBundle'),
+            new Sonata\UserBundle\SonataUserBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new VelJo\GHProjectBundle\VelJoGHProjectBundle(),
             new VelJo\UserBundle\VelJoUserBundle(),
         );
