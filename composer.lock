@@ -3,11 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-<<<<<<< HEAD
-    "hash": "5ff2065200d17d16fd227a5a67ebd4a7",
-=======
-    "hash": "7f00b6793e525f9aa1fe95cb3c009ce6",
->>>>>>> 0dde65754c9fa76e78b295794994bca2952a58ec
+    "hash": "f17901e269d4f9cedbe10e868fd7c3f7",
     "packages": [
         {
             "name": "components/jquery",
@@ -92,7 +88,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -602,12 +598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "bf9bcb39506047de069066ec63f57978f0d7b135"
+                "reference": "f7138381aa884c0f679da4de41e369b94ead9cd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/bf9bcb39506047de069066ec63f57978f0d7b135",
-                "reference": "bf9bcb39506047de069066ec63f57978f0d7b135",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/f7138381aa884c0f679da4de41e369b94ead9cd3",
+                "reference": "f7138381aa884c0f679da4de41e369b94ead9cd3",
                 "shasum": ""
             },
             "require": {
@@ -654,7 +650,7 @@
                 "migrations",
                 "schema"
             ],
-            "time": "2014-03-16 11:00:13"
+            "time": "2014-03-20 14:48:55"
         },
         {
             "name": "doctrine/inflector",
@@ -910,12 +906,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle.git",
-                "reference": "aeb671a752a8e9e29dc54a8915fc8f045e9b9a07"
+                "reference": "767daec362035288200d9c6b3bd4ef877f335e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCommentBundle/zipball/aeb671a752a8e9e29dc54a8915fc8f045e9b9a07",
-                "reference": "aeb671a752a8e9e29dc54a8915fc8f045e9b9a07",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCommentBundle/zipball/767daec362035288200d9c6b3bd4ef877f335e2d",
+                "reference": "767daec362035288200d9c6b3bd4ef877f335e2d",
                 "shasum": ""
             },
             "require": {
@@ -979,7 +975,7 @@
                 "forum",
                 "threads"
             ],
-            "time": "2014-03-17 23:33:33"
+            "time": "2014-03-19 09:47:24"
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -1121,21 +1117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-<<<<<<< HEAD
-                "reference": "f8e9255eedc91bc53195de288c9fe640719b2817"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/f8e9255eedc91bc53195de288c9fe640719b2817",
-                "reference": "f8e9255eedc91bc53195de288c9fe640719b2817",
-=======
                 "reference": "0fc044447ca41acc73d424a6a90d1b9f7fa25d7b"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/0fc044447ca41acc73d424a6a90d1b9f7fa25d7b",
                 "reference": "0fc044447ca41acc73d424a6a90d1b9f7fa25d7b",
->>>>>>> 0dde65754c9fa76e78b295794994bca2952a58ec
                 "shasum": ""
             },
             "require": {
@@ -1189,33 +1176,20 @@
             "keywords": [
                 "User management"
             ],
-<<<<<<< HEAD
-            "time": "2014-03-18 08:55:34"
-=======
             "time": "2013-09-23 08:24:12"
->>>>>>> 0dde65754c9fa76e78b295794994bca2952a58ec
         },
         {
             "name": "gedmo/doctrine-extensions",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-<<<<<<< HEAD
-                "reference": "59c819b22ec19867d330cc3173c874b7a7ffac3b"
+                "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
+                "reference": "5c38b0930704e133d9afe3e99e69fe0778448ebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/59c819b22ec19867d330cc3173c874b7a7ffac3b",
-                "reference": "59c819b22ec19867d330cc3173c874b7a7ffac3b",
-=======
-                "reference": "75714639eef7fcc29e48be100618167e89facc8f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/75714639eef7fcc29e48be100618167e89facc8f",
-                "reference": "75714639eef7fcc29e48be100618167e89facc8f",
->>>>>>> 0dde65754c9fa76e78b295794994bca2952a58ec
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/5c38b0930704e133d9afe3e99e69fe0778448ebd",
+                "reference": "5c38b0930704e133d9afe3e99e69fe0778448ebd",
                 "shasum": ""
             },
             "require": {
@@ -1282,11 +1256,7 @@
                 "tree",
                 "uploadable"
             ],
-<<<<<<< HEAD
-            "time": "2014-03-18 09:07:39"
-=======
-            "time": "2014-03-16 18:59:19"
->>>>>>> 0dde65754c9fa76e78b295794994bca2952a58ec
+            "time": "2014-03-20 05:37:42"
         },
         {
             "name": "imagine/imagine",
@@ -3428,12 +3398,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "ec1949a98c1dddf79533db0b272f9573ad6e63ac"
+                "reference": "9f04e09e180fee6325a9a36c61d0414ed37e0917"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/ec1949a98c1dddf79533db0b272f9573ad6e63ac",
-                "reference": "ec1949a98c1dddf79533db0b272f9573ad6e63ac",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/9f04e09e180fee6325a9a36c61d0414ed37e0917",
+                "reference": "9f04e09e180fee6325a9a36c61d0414ed37e0917",
                 "shasum": ""
             },
             "require": {
@@ -3488,7 +3458,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2014-03-08 23:55:34"
+            "time": "2014-03-19 11:44:11"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -4050,20 +4020,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.0",
+            "version": "v1.2.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "cac3fdfb111adbe590155f491594636d45129783"
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/cac3fdfb111adbe590155f491594636d45129783",
-                "reference": "cac3fdfb111adbe590155f491594636d45129783",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/98e197da54df1f966dd5e8a4992135703569c987",
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987",
                 "shasum": ""
             },
             "require": {
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -4093,7 +4064,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:07"
+            "time": "2013-10-04 10:06:38"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -4561,7 +4532,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com",
                     "homepage": "http://www.willdurand.fr"
                 }
