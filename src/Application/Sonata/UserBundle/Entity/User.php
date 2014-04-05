@@ -28,6 +28,9 @@ class User extends BaseUser
      */
     protected $id;
 
+    /** @var string */
+    protected $facebookAccessToken;
+
     /**
      * Get id
      *
@@ -37,4 +40,22 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * @param mixed $facebookAccessToken
+     */
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebookAccessToken = $facebookAccessToken;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookAccessToken()
+    {
+        return $this->facebookAccessToken;
+    }
+
+
 }

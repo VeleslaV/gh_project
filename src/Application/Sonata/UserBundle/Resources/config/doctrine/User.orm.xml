@@ -10,6 +10,9 @@
             <generator strategy="AUTO" />
         </id>
 
+        <field name="facebookAccessToken" column="facebook_access_token" type="string" length="255" nullable="true">
+        </field>
+
     </entity>
 
 </doctrine-mapping>

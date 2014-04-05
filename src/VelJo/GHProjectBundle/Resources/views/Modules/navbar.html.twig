@@ -31,6 +31,9 @@
                 <li {% if app.request.get('_route') == "_contact" %}class="active"{% endif %}>
                     <a href="{{ path('_contact') }}">Contact</a>
                 </li>
+                <li>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="Sign in with Facebook">Facebook</a>
+                </li>
             </ul>
             <div class="navbar-right">
 
