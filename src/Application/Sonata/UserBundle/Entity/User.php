@@ -28,8 +28,20 @@ class User extends BaseUser
      */
     protected $id;
 
-    /** @var string */
+    /**
+     * @var string $facebookAccessToken
+     */
     protected $facebookAccessToken;
+
+    /**
+     * @var string $googleUid
+     */
+    protected $googleUid;
+
+    /**
+     * @var string googleAccessToken
+     */
+    protected $googleAccessToken;
 
     /**
      * Get id
@@ -40,6 +52,39 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * @param string $googleUid
+     */
+    public function setGoogleUid($googleUid)
+    {
+        $this->googleUid = $googleUid;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGoogleUid()
+    {
+        return $this->googleUid;
+    }
+
+    /**
+     * @param string $googleAccessToken
+     */
+    public function setGoogleAccessToken($googleAccessToken)
+    {
+        $this->googleAccessToken = $googleAccessToken;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGoogleAccessToken()
+    {
+        return $this->googleAccessToken;
+    }
+
 
     /**
      * @param mixed $facebookAccessToken

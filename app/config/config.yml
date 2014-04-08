@@ -114,6 +114,7 @@ hwi_oauth:
         properties:
             # these properties will be used/redefined later in the custom FOSUBUserProvider service.
             facebook: facebookUid
+            google: googleUid
 
     resource_owners:
         facebook:
@@ -121,6 +122,11 @@ hwi_oauth:
             client_id:           "%facebook_app_id%"
             client_secret:       "%facebook_app_secret_key%"
             scope:               "email"
+        google:
+            type:                google
+            client_id:           "%google_client_id%"
+            client_secret:       "%google_client_secret%"
+            scope:               "email profile"
 
 sonata_block:
     default_contexts: [cms]

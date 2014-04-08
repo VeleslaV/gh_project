@@ -9,8 +9,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class VelJoUserProvider extends BaseClass
 {
 
-    /** @var FacebookProvider $facebookProvider */
+    /**
+     * @var FacebookProvider $facebookProvider
+     */
     protected $facebookProvider;
+
+    /**
+     * @var GoogleProvider $googleProvider
+     */
+
+    protected $googleProvider;
     /**
      * {@inheritDoc}
      */
@@ -80,5 +88,14 @@ class VelJoUserProvider extends BaseClass
     {
         $this->facebookProvider = $facebookProvider;
     }
+
+    /**
+     * @param GoogleProvider $googleProvider
+     */
+    public function setGoogleProvider(GoogleProvider $googleProvider)
+    {
+        $this->googleProvider = $googleProvider;
+    }
+
 
 }

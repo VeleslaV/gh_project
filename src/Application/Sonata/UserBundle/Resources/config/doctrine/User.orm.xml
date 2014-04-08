@@ -13,6 +13,12 @@
         <field name="facebookAccessToken" column="facebook_access_token" type="string" length="255" nullable="true">
         </field>
 
+        <field name="googleUid" column="google_uid" type="string" length="255" nullable="true">
+        </field>
+
+        <field name="googleAccessToken" column="google_access_token" type="string" length="255" nullable="true">
+        </field>
+
     </entity>
 
 </doctrine-mapping>
