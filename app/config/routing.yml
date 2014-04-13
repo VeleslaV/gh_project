@@ -1,5 +1,5 @@
 veljo_user:
-    resource: "@VelJoUserBundle/Resources/config/routing.yml"
+    resource: "@ApplicationSonataUserBundle/Resources/config/routing.yml"
     prefix:   /
 
 veljo_ghproject:
