@@ -1,0 +1,23 @@
+parameters:
+    social_user_provider.class: Application\Sonata\UserBundle\UserProvider\VelJoUserProvider
+
+services:
+    social_user_provider:
+        class: "%social_user_provider.class%"
+        arguments: [ @fos_user.user_manager, { facebook: facebookUid, google: googleUid } ]
+        calls:
+            - [ setFacebookProvider, [ @facebook_provider ] ]
+            - [ setGoogleProvider, [ @google_provider ] ]
+
+    abstract_social_network_provider:
+        class: Application\Sonata\UserBundle\UserProvider\AbstractSocialNetworkProvider
+        arguments:
+            - @sonata.user.orm.user_manager
+
+    facebook_provider:
+        class: Application\Sonata\UserBundle\UserProvider\FacebookProvider
+        parent: abstract_social_network_provider
+
+    google_provider:
+        class: Application\Sonata\UserBundle\UserProvider\GoogleProvider
+        parent: abstract_social_network_provider

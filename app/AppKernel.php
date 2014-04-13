@@ -34,11 +34,12 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Raindrop\SonataThemeBundle\RaindropSonataThemeBundle('SonataAdminBundle'),
-            new Sonata\UserBundle\SonataUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new VelJo\GHProjectBundle\VelJoGHProjectBundle(),
-            new VelJo\UserBundle\VelJoUserBundle(),
+//            new VelJo\UserBundle\VelJoUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

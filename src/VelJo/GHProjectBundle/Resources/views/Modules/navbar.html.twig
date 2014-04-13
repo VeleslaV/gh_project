@@ -33,6 +33,11 @@
                 </li>
                 <li {% if app.request.get('_route') == "_gbook" %}class="active"{% endif %}>
                     <a href="{{ path('_gbook') }}">Guest book</a>
+                <li>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="Sign in with Facebook">Facebook</a>
+                </li>
+                <li>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" alt="Sign in with Google">Google</a>
                 </li>
             </ul>
             <div class="navbar-right">

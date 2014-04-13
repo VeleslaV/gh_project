@@ -101,6 +101,29 @@ fos_user:
                 address:        robot@veljo.loc
                 sender_name:    VelJo Project Resetting
 
+hwi_oauth:
+    connect:
+        account_connector: social_user_provider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            facebook: facebookUid
+            google: googleUid
+
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "%facebook_app_id%"
+            client_secret:       "%facebook_app_secret_key%"
+            scope:               "email"
+        google:
+            type:                google
+            client_id:           "%google_client_id%"
+            client_secret:       "%google_client_secret%"
+            scope:               "email profile"
+
 sonata_block:
     default_contexts: [cms]
     blocks:

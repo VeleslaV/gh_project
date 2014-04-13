@@ -46,7 +46,8 @@
         "raindrop/sonata-theme-bundle": "1.1.0.*@dev",
         "sunra/php-simple-html-dom-parser": "v1.5.0",
         "sonata-project/easy-extends-bundle": "2.1.6",
-        "sonata-project/user-bundle": "2.2.4"
+        "sonata-project/user-bundle": "2.2.4",
+        "hwi/oauth-bundle": "0.4.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
