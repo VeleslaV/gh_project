@@ -16,7 +16,7 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    facebook_app_id:            1408786076053993
-    facebook_app_secret_key:    0ee1cb56352772741fc431312ab9d8cc
-    google_client_id:           525200806910-cglpfqp9slrtdlda1pa9a0pkfl5uahcj.apps.googleusercontent.com
-    google_client_secret:       ScDWvvE7vEnBelYvwcULMLGW
+    facebook_app_id:            ~
+    facebook_app_secret_key:    ~
+    google_client_id:           ~
+    google_client_secret:       ~
