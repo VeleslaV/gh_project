@@ -50,3 +50,12 @@ facebook_login:
 
 google_login:
     pattern: /login/check-google
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+sonata_api_user:
+    type:         rest
+    resource:     "@SonataUserBundle/Resources/config/routing/api.xml"
+    prefix:       /api/user
