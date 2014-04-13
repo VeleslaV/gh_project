@@ -4,34 +4,83 @@
     {% if resultData.error is defined %}
         <b>{{ resultData.error  }}</b>
     {% else %}
-        <div class="search_article_container">
-            <div class="kwd_title">{{ kwd }}</div>
-            <div class="tabs_wrapper">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs">
-                    <li><a href="#info" data-toggle="tab">Info</a></li>
-                    <li><a href="#photos" data-toggle="tab">Photos</a></li>
-                    <li class="active"><a href="#albums" data-toggle="tab">Albums</a></li>
-                    <li><a href="#else" data-toggle="tab">Else</a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div class="tab-pane" id="info">{{ kwd }} info</div>
-                    <div class="tab-pane" id="photos">{{ kwd }} Photos</div>
-                    <div class="tab-pane active" id="albums">
-                        {% if parseResult is defined %}
-                            {% for data in parseResult.albums %}
-                                <div class="album_wrapper">
-                                    <img src="{{ data.img|raw }}" class="album_img">
-                                    <div class="album_name">{{ data.name|raw }}</div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                        <div class="clr"></div>
+        {% if song is defined %}
+            <div class="search_article_container">
+                <div class="kwd_title col-md-12 page-header">
+                    <a href="{{ path('_search_band', {'band': band}) }}">{{ band }}</a> / <a href="{{ path('_search_band_album', {'band': band, 'album': album}) }}">{{ album }}</a> / {{ song }}
+                </div>
+                {% if parseResult is defined %}
+                    <div class="col-md-12">
+                        Text
                     </div>
-                    <div class="tab-pane" id="else">{{ kwd }} else...</div>
+                {% endif %}
+            </div>
+        {% elseif album is defined %}
+            <div class="search_article_container">
+                <div class="kwd_title col-md-12 page-header">
+                    <a href="{{ path('_search_band', {'band': band}) }}">{{ band }}</a> / {{ album }}
+                </div>
+                {% if parseResult is defined %}
+                    <div class="left col-md-4">
+                        <img src="{{ parseResult.info.img }}" class="album_img_big">
+                        <div class="tags">
+                            <ul class="nav">
+                                {% if parseResult.tags is defined %}
+                                    {% for tag in parseResult.tags %}
+                                        <li>{{ tag.name }}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right col-md-8">
+                        <div class="songs">
+                            <ul class="">
+                            {% for song in parseResult.songs %}
+                                <li><a href="{{ path('_search_band_album_song', {'band': band, 'album': album, 'song': song.name}) }}">{{ song.name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="search_article_container">
+                <div class="kwd_title col-md-12 page-header">{{ band }}</div>
+                <div class="tabs_wrapper">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
+                        <li><a href="#photos" data-toggle="tab">Photos</a></li>
+                        <li><a href="#albums" data-toggle="tab">Albums</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        {% if parseResult is defined %}
+                            <div class="tab-pane active" id="info">
+                                <img src="{{ parseResult.photos.0.src }}" class="band_img left">
+                                {{ parseResult.info|raw }}
+                                <div class="clr"></div>
+                            </div>
+                            <div class="tab-pane" id="photos">
+                                {% for data in parseResult.photos %}
+                                    <div class="band_photos_wrapper">
+                                        <img src="{{ data.src }}" class="band_photos">
+                                    </div>
+                                {% endfor %}
+                                <div class="clr"></div>
+                            </div>
+                            <div class="tab-pane" id="albums">
+                                    {% for data in parseResult.albums %}
+                                        <div class="album_wrapper">
+                                            <img src="{{ data.img }}" class="album_img">
+                                            <div class="album_name"><a href="{{ path('_search_band_album', {'band': band, 'album': data.name}) }}">{{ data.name|raw }}</a></div>
+                                        </div>
+                                    {% endfor %}
+                                <div class="clr"></div>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     {% endif %}
 {% endblock container %}

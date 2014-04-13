@@ -1,0 +1,14 @@
+{% extends 'VelJoGHProjectBundle::index.html.twig' %}
+
+{% block container %}
+    {% if resultData.error is defined %}
+        <b>{{ resultData.error  }}</b>
+    {% else %}
+        {% for sectionData in resultData %}
+            {{ include ('VelJoGHProjectBundle:Modules:breadcrumbs.html.twig', {'sectionName': 'Tags', 'pageName': sectionData.title}) }}
+            <div class="">
+                {{ include ('VelJoGHProjectBundle:Modules:articles_template.html.twig', {'posts': sectionData.articles}) }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock container %}

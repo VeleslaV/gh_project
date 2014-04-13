@@ -52,25 +52,16 @@
     <body>
         {{ include ('VelJoGHProjectBundle:Modules:navbar.html.twig') }}
         {% block body %}
-            {% if app.request.get('_route') == "_main" %}
+            {% if app.request.get('_route') == "_main" or app.request.get('_route') == "_gbook" %}
                 <div id="sliderWrapper">
                     <div id="slider">
-                        {% block slider %}{% endblock slider %}
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        {% if app.request.get('_route') == "_main" %}
+                            {% block slider %}
+                                {% block searchForm %}{% endblock searchForm %}
+                            {% endblock slider %}
+                        {% elseif app.request.get('_route') == "_gbook" %}
+                            {% block form %}{% endblock form %}
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}

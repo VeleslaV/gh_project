@@ -1,0 +1,24 @@
+bands_rating:
+    drudkh:
+        band: Drudkh
+        rating: 12
+
+    nokturnalmortum:
+        band: Nokturnal Mortum
+        rating: 8
+
+    kroda:
+        band: Kroda
+        rating: 5
+
+    immortal:
+        band: Immortal
+        rating: 4
+
+    eluveitie:
+        band: Eluveitie
+        rating: 4
+
+    hateforest:
+        band: Hate Forest
+        rating: 2

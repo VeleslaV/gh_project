@@ -2,10 +2,20 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="sonata.admin.user" class="VelJo\GHProjectBundle\Admin\UserAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="Content" label="User"/>
+        <service id="sonata.admin.article" class="VelJo\GHProjectBundle\Admin\ArticleAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Content" label="Article"/>
             <argument />
-            <argument>VelJo\UserBundle\Entity\User</argument>
+            <argument>VelJo\GHProjectBundle\Entity\Article</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>VelJoGHProjectBundle</argument>
+            </call>
+        </service>
+
+        <service id="sonata.admin.tag" class="VelJo\GHProjectBundle\Admin\TagAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Content" label="Tag"/>
+            <argument />
+            <argument>VelJo\GHProjectBundle\Entity\Tag</argument>
             <argument />
             <call method="setTranslationDomain">
                 <argument>VelJoGHProjectBundle</argument>
