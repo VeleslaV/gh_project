@@ -1,8 +1,8 @@
 {% extends 'VelJoGHProjectBundle::index.html.twig' %}
 
 {% block container %}
-    {% if resultData.error is defined %}
-        <b>{{ resultData.error  }}</b>
+    {% if error is defined %}
+        <b>{{ error }}</b>
     {% else %}
         {% if song is defined %}
             <div class="search_article_container">
@@ -46,7 +46,7 @@
             </div>
         {% else %}
             <div class="search_article_container">
-                <div class="kwd_title col-md-12 page-header">{{ band }}</div>
+                <div class="kwd_title col-md-12 page-header">{{ band.name }}</div>
                 <div class="tabs_wrapper">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
@@ -54,30 +54,28 @@
                         <li><a href="#albums" data-toggle="tab">Albums</a></li>
                     </ul>
                     <div class="tab-content">
-                        {% if parseResult is defined %}
-                            <div class="tab-pane active" id="info">
-                                <img src="{{ parseResult.photos.0.src }}" class="band_img left">
-                                {{ parseResult.info|raw }}
-                                <div class="clr"></div>
+                        <div class="tab-pane active" id="info">
+                            <img src="{{ band.photos[0] }}" class="band_img left">
+                            {{ band.description|raw }}
+                            <div class="clr"></div>
+                        </div>
+                        <div class="tab-pane" id="photos">
+                        {% for photo in band.photos %}
+                            <div class="band_photos_wrapper">
+                                <img src="{{ photo }}" class="band_photos">
                             </div>
-                            <div class="tab-pane" id="photos">
-                                {% for data in parseResult.photos %}
-                                    <div class="band_photos_wrapper">
-                                        <img src="{{ data.src }}" class="band_photos">
-                                    </div>
-                                {% endfor %}
-                                <div class="clr"></div>
+                        {% endfor %}
+                            <div class="clr"></div>
+                        </div>
+                        <div class="tab-pane" id="albums">
+                        {% for data in band.albums %}
+                            <div class="album_wrapper">
+                                <img src="{{ data.img }}" class="album_img">
+                                <div class="album_name"><a href="{{ path('_search_band_album', {'band': band.name, 'album': data.name}) }}">{{ data.name|raw }}</a></div>
                             </div>
-                            <div class="tab-pane" id="albums">
-                                    {% for data in parseResult.albums %}
-                                        <div class="album_wrapper">
-                                            <img src="{{ data.img }}" class="album_img">
-                                            <div class="album_name"><a href="{{ path('_search_band_album', {'band': band, 'album': data.name}) }}">{{ data.name|raw }}</a></div>
-                                        </div>
-                                    {% endfor %}
-                                <div class="clr"></div>
-                            </div>
-                        {% endif %}
+                        {% endfor %}
+                            <div class="clr"></div>
+                        </div>
                     </div>
                 </div>
             </div>

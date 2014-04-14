@@ -21,7 +21,7 @@ _search:
         defaults: {_controller: VelJoGHProjectBundle:Main:searchForm}
 
 _search_band:
-        pattern: /search/{band}/
+        pattern: /search/{bandName}/
         defaults: {_controller: VelJoGHProjectBundle:Main:searchBandResult}
 
 _search_band_album:

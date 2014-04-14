@@ -90,45 +90,14 @@ class MainController extends Controller
         return $this->render('VelJoGHProjectBundle:Modules:search_form.html.twig', $pageData);
     }
 
-    public function searchBandResultAction($band = "")
+    public function searchBandResultAction($bandName = "")
     {
         $pageData = array();
 
-        if(empty($band)){
-            $pageData['resultData']['error'] = "No keyword for search =(";
-        }else{
-            $elementsData = array();
-            $pageData['band'] = $band;
-            $band = preg_replace('/\s/','+',$band);
-
-            $infoUrl = "http://www.lastfm.ru/music/".$band."/+wiki";
-            $infoDom = HtmlDomParser::file_get_html($infoUrl);
-            if(isset($infoDom)){
-                $bandInfo = $infoDom->find("div[id=wiki]", 0)->innertext;
-            }
-
-            $photosUrl = "http://www.lastfm.ru/music/".$band."/+images";
-            $photosDom = HtmlDomParser::file_get_html($photosUrl);
-            if(isset($photosDom)){
-                $photosDomElements = $photosDom->find("ul[id=pictures] li a[class=pic] img");
-                foreach($photosDomElements as $phkey => $phelement) {
-                    $elementsData['photos'][$phkey]['src'] = $phelement->src;
-                }
-            }
-
-            $albumsUrl = "http://www.lastfm.ru/music/".$band."/+albums";
-            $albumsDom = HtmlDomParser::file_get_html($albumsUrl);
-            if(isset($albumsDom)){
-                $albumsDomElements = $albumsDom->find("section[class=album-item]");
-                foreach($albumsDomElements as $akey => $aelement) {
-                    $albumSimpleName = $aelement->children(3)->children(0)->children(0)->children(0)->innertext;
-                    $elementsData['albums'][$akey]['name'] = preg_replace('/\/\s/','',$albumSimpleName);
-                    $elementsData['albums'][$akey]['img'] = $aelement->children(2)->children(0)->src;
-                }
-            }
-
-            $elementsData['info'] = $bandInfo;
-            $pageData['parseResult'] = $elementsData;
+        if (empty($bandName)) {
+            $pageData['error'] = "No keyword for search =(";
+        } else {
+            $pageData['band'] = $this->get('veljo_ghproject.band_fetcher')->fetch($bandName);
         }
 
         return $this->render('VelJoGHProjectBundle::search.html.twig', $pageData);
