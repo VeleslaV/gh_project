@@ -15,7 +15,6 @@
         </div>
     {% endif %}
     <div class="container">
-
         <div class="navbar-header">
             <img src="{{ 'bundles/veljoghproject/images/veljo_logo.png' | imagine_filter('min_thumb') }}" class="logo_img">
             <a href="{{ path('_main') }}" class="navbar-brand-new">VelJo Project</a>
@@ -23,26 +22,23 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li {% if app.request.get('_route') == "_main" %}class="active"{% endif %}>
-                    <a href="{{ path('_main') }}">Home</a>
+                    <a href="{{ path('_main') }}">{{ 'navigation.home'|trans }}</a>
                 </li>
                 <li {% if app.request.get('_route') == "_about" %}class="active"{% endif %}>
-                    <a href="{{ path('_about') }}">About</a>
+                    <a href="{{ path('_about') }}">{{ 'navigation.about'|trans }}</a>
                 </li>
                 <li {% if app.request.get('_route') == "_contact" %}class="active"{% endif %}>
-                    <a href="{{ path('_contact') }}">Contact</a>
+                    <a href="{{ path('_contact') }}">{{ 'navigation.contact'|trans }}</a>
                 </li>
                 <li {% if app.request.get('_route') == "_gbook" %}class="active"{% endif %}>
-                    <a href="{{ path('_gbook') }}">Guest book</a>
+                    <a href="{{ path('_gbook') }}">{{ 'navigation.gbook'|trans }}</a>
                 <li>
-                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="Sign in with Facebook">Facebook</a>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="Sign in with Facebook">{{ 'navigation.fbook'|trans }}</a>
                 </li>
                 <li>
-                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" alt="Sign in with Google">Google</a>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" alt="Sign in with Google">{{ 'navigation.google'|trans }}</a>
                 </li>
             </ul>
-            <div class="navbar-right">
-
-            </div>
             <div class="navbar-right">
                 <div class="nav_user_data">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -52,6 +48,10 @@
                         <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a> |
                         <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                     {% endif %}
+                </div>
+                <div class="locales">
+                    <a href="{{ path(app.request.get('_route'), {'_locale':'uk'}) }}">UK</a>
+                    <a href="{{ path(app.request.get('_route'), {'_locale':'en'}) }}">EN</a>
                 </div>
             </div>
         </div>

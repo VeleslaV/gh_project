@@ -86,7 +86,7 @@ layout:
     logout: Logout
     login: Login
     register: Register
-    logged_in_as: Logged in as
+    logged_in_as: Logged in as1
     password_reset: Password reset
 
 # Form field labels

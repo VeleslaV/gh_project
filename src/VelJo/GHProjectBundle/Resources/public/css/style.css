@@ -129,7 +129,11 @@ textarea.gbook_txra {
 .navbar-brand-new:hover {
     text-decoration: none;
 }
-
+.locales {
+    color: #fff;
+    float: right;
+    margin: 15px 0px 0px 40px;
+}
 .nav_user_data {
     float: left;
     padding: 15px 15px;
