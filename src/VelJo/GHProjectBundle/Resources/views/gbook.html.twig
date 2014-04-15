@@ -1,0 +1,61 @@
+{% extends 'VelJoGHProjectBundle::index.html.twig' %}
+
+{% block form %}
+    <div>
+        {{ form_start(form, {'attr': {'role': 'form', 'novalidate': 'novalidate' }}) }}
+        <div class="gbook_form_container">
+            <div class="row">
+                <div class="col-xs-5">
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name' }}) }}
+                </div>
+                <div class="col-xs-5">
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email' }}) }}
+                </div>
+                <div class="col-xs-2">
+                    <button class="btn btn-sm btn-primary" type="submit">Огонь</button>
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 20px;">
+                {{ form_widget(form.message, {'attr': {'class': 'form-control gbook_txra', 'placeholder': 'Message' }}) }}
+            </div>
+        </div>
+        <div class="error_container">
+            {% if form_errors(form.name) %}
+                <div>{{ form_label(form.name) }}{{ form_errors(form.name) }}</div>
+            {% endif %}
+            {% if form_errors(form.email) %}
+                <div>{{ form_label(form.email) }}{{ form_errors(form.email) }}</div>
+            {% endif %}
+            {% if form_errors(form.message) %}
+                <div>{{ form_label(form.message) }}{{ form_errors(form.message) }}</div>
+            {% endif %}
+        </div>
+        {{ form_end(form) }}
+        <div class="clr"></div>
+    </div>
+{% endblock form %}
+
+{% block container %}
+    <div id="homeWrapper">
+        {{ include ('VelJoGHProjectBundle:Modules:breadcrumbs.html.twig', {'pageName': 'Gbook'}) }}
+        <div class="well">
+            {% for comment in pagination %}
+                <div class="col-8 col-sm-8 col-lg-6 comment_wrapper">
+                    <div class="user_data_wrapper">
+                        <div class="user_picture">
+                            <img class="img-circle" src="" />
+                        </div>
+                        <div class="user_name">
+                            <h4>#{{ comment.id }} <b>{{ comment.name }}</b></h4>
+                            <i>{{ comment.email }}</i>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="message_wrapper">{{ comment.message|cutString(200) }}</div>
+                    <a class="btn btn-primary" href="{{ path('_single_comment', {'cid': comment.id}) }}">More &raquo;</a>
+                </div>
+            {% endfor %}
+            <div class="clr"></div>
+        </div>
+    </div>
+{% endblock container %}

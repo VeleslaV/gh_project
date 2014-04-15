@@ -40,9 +40,6 @@
             {% javascripts '@VelJoGHProjectBundle/Resources/public/js/actions.js' output='js/actions.js' %}
                 <script type="text/javascript" src="{{asset_url}}"></script>
             {% endjavascripts %}
-            {% javascripts '@VelJoGHProjectBundle/Resources/public/js/jquery.highlight.js' output='js/jquery.highlight.js' %}
-                <script type="text/javascript" src="{{asset_url}}"></script>
-            {% endjavascripts %}
             {% javascripts '@VelJoGHProjectBundle/Resources/public/js/jquery.cookies.js' output='js/jquery.cookies.js' %}
                 <script type="text/javascript" src="{{asset_url}}"></script>
             {% endjavascripts %}
@@ -55,8 +52,21 @@
     <body>
         {{ include ('VelJoGHProjectBundle:Modules:navbar.html.twig') }}
         {% block body %}
+            {% if app.request.get('_route') == "_main" or app.request.get('_route') == "_gbook" %}
+                <div id="sliderWrapper">
+                    <div id="slider">
+                        {% if app.request.get('_route') == "_main" %}
+                            {% block slider %}
+                                {% block searchForm %}{% endblock searchForm %}
+                            {% endblock slider %}
+                        {% elseif app.request.get('_route') == "_gbook" %}
+                            {% block form %}{% endblock form %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
             <div id="mainWrapper" class="container">
-                <div class="col-xs-12 {% if app.request.get('_route') != "_gbook" %}col-sm-9{% endif %}">
+                <div class="col-xs-12 {% if app.request.get('_route') != "_gbook" %}col-sm-12{% endif %}">
                         {% block container %}{% endblock container %}
                 </div>
                 <div class="clr"></div>

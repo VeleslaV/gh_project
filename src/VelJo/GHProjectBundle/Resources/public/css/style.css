@@ -1,5 +1,5 @@
 html, body{ height: 100%; }
-body { padding-top: 0px; padding-bottom: 75px; }
+body { padding-top: 0px; padding-bottom: 0px; }
 hr.light {border-top: 1px solid #83a3b1;}
 .left { float: left; }
 .right { float: right; }
@@ -13,24 +13,9 @@ h1, h2, h3 {
 input.has_error {
     background-color: #f3c6c7;
 }
-.page-header {
-    margin-top: 0 !important;
-}
-.row {
-    margin-bottom: 10px;
-}
-.theme-dropdown .dropdown-menu {
-    display: block;
-    position: static;
-    margin-bottom: 20px;
-}
-
-.theme-showcase > p > .btn {
-    margin: 5px 0;
-}
 #mainWrapper {
-    min-height: 110%;
-    padding: 90px 0px 55px 0px;
+    min-height: 100%;
+    padding: 80px 0px 0px 0px;
 }
 .gbook_form_container {
     width: 500px;
@@ -126,6 +111,23 @@ textarea.gbook_txra {
 }
 .navbar-header {
     cursor: default;
+    width: 190px !important;
+}
+.navbar-header .logo_img{
+    float: left;
+    margin: 0px 0px 0px 0px;
+}
+
+.navbar-brand-new {
+    float: left;
+    padding: 5px 5px 5px 15px;
+    margin: 11px 0px 0px -12px;
+    font-size: 20px;
+    line-height: 18px;
+    border-bottom: 2px solid #1778CC;
+}
+.navbar-brand-new:hover {
+    text-decoration: none;
 }
 
 .nav_user_data {
@@ -136,16 +138,12 @@ textarea.gbook_txra {
 
 #sliderWrapper {
     background: #fff;
-    margin: -35px 0px 0px 0px;
+    margin:80px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 1030;
 }
 #slider {
     margin: 0px auto 0px auto;
-    padding: 20px 0px 10px 0px;
+    padding: 40px 0px 40px 0px;
     height: auto;
     background: #fff url('http://amazingslider.com/wp-content/themes/twentyeleven/images/background.png');
     box-shadow: 0 -2px 8px -5px #000 inset, 0 2px 8px -5px #000 inset;
@@ -153,7 +151,7 @@ textarea.gbook_txra {
     border-bottom: 1px solid #ADADAD;
 }
 #homeWrapper {
-    margin: 155px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
 }
 #ghHomeWork {
@@ -309,16 +307,14 @@ span.current {
     border-bottom: 1px solid #DBDADA;
 }
 .tags ul.nav {
-    text-align: center;
+    text-align: left;
 }
 .tags ul.nav li {
     text-align: left;
-}
-.tags ul.nav a {
-    margin: 5px 7px;
-    padding: 0px 5px;
+    margin: 10px 3px 0px 0px;
+    padding: 5px 5px;
     display: inline-block;
-    background: #FFF;
+    background: #fffbd4;
     border-radius: 5px;
     color: #0A518F;
     box-shadow: 1px 1px 1px #E4E4E4;
@@ -334,13 +330,82 @@ span.current {
     margin: 0px 0px 0px 0px;
 }
 input#form_keyword {
-    width: 204px;
+    width: 712px;
+    height: 50px;
+    padding: 10px 10px 10px 10px;
+}
+button#form_button {
+    height: 50px;
+}
+.search_from_wrapper {
+    width: 800px;
+    margin: 0px auto;
+}
+
+.kwd_title {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0px 0px 20px 0px;
+}
+.album_wrapper {
+    float: left;
+    margin: 0px 27px 27px 0px;
+    height: 250px;
+}
+.album_wrapper:nth-child(5n) {
+    margin-right: 0px;
+}
+.band_photos_wrapper {
+    float: left;
+    margin: 0px 27px 27px 0px;
+    height: 200px;
+}
+.band_photos_wrapper:nth-child(5n) {
+    margin-right: 0px;
+}
+.album_img_big{
+    height: 350px;
+    width: 350px;
+}
+.band_photos{
+    height: 200px;
+    width: 200px;
+}
+.album_img{
+    height: 200px;
+    width: 200px;
+}
+.band_img{
+    height: 200px;
+    width: 200px;
+    margin: 0px 10px 0px 0px;
+}
+.album_name{
+    display: block;
+    height: 50px;
+    width: 200px;
+    background: #E9E9E9;
+    padding: 5px;
+    box-shadow: 0px 7px 7px -7px #000 inset;
 }
 #moreArticlesContainer {
     text-align: center;
     margin: -40px 0px 30px 0px;
     height: 20px;
 }
+.tab-content {
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 15px 15px;
+}
+.page-header {
+    margin: 0px 0px 50px 0px;
+}
+.article_wrapper {
+    margin: 0px 0px 50px 0px;
+}
+
 
 .fos_comment_comment_new_form textarea{
     width: 600px;

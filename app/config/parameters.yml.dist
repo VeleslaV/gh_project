@@ -3,7 +3,7 @@ parameters:
     database_host:     127.0.0.1
     database_port:     ~
     database_name:     project
-    database_user:     root
+    database_user:     ~
     database_password: ~
 
     mailer_transport:  smtp
@@ -15,3 +15,8 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    facebook_app_id:            ~
+    facebook_app_secret_key:    ~
+    google_client_id:           ~
+    google_client_secret:       ~

@@ -1,0 +1,13 @@
+{% extends 'VelJoGHProjectBundle::index.html.twig' %}
+
+{% block container %}
+    {% if pageData.error is defined %}
+        <b>{{ pageData.error }}</b>
+    {% else %}
+        <div class="">
+            {{ include ('VelJoGHProjectBundle:Modules:breadcrumbs.html.twig', {'pageName': pageData.sectionTitle}) }}
+            <b>{{ pageData.sectionTitle }}</b><br>
+            <b>{{ pageData.sectionBody }}</b>
+        </div>
+    {% endif %}
+{% endblock container %}

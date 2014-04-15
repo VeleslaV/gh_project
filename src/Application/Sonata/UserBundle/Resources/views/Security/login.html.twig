@@ -1,0 +1,67 @@
+{% extends "ApplicationSonataUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    {% if error %}
+        <div class="text-danger col-sm-offset-2 col-sm-4" style="padding: 0px;">
+            <blockquote>
+                    {{ error|trans }}
+            </blockquote>
+        </div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+        <div class="form_container" style="margin-left: 0px;">
+            <div class="row">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="username">{{ 'security.login.username'|trans }}</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="password">{{ 'security.login.password'|trans }}</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="password" id="password" name="_password" required="required" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <div class="checkbox">
+                            <label for="remember_me">
+                                <input class="form" type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <input class="btn btn-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="clr page-header"></div>
+    <a href="{{ path('fos_user_resetting_request') }}">{{ 'layout.password_reset'|trans({}, 'FOSUserBundle') }}</a>
+
+    <div class="clr page-header"></div>
+    <div class="col-sm-6" style="padding: 0px;">
+        <table class="table table-bordered">
+            <tr>
+                <td class="success">Test admin</td>
+                <td class="warning">testadmin : testadmin</td>
+            </tr>
+            <tr>
+                <td class="success">Test moderator</td>
+                <td class="warning">testmoderator : testmoderator</td>
+            </tr>
+            <tr>
+                <td class="success">Test user</td>
+                <td class="warning">testuser : testuser</td>
+            </tr>
+        </table>
+    </div>
+{% endblock fos_user_content %}

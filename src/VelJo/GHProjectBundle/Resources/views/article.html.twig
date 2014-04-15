@@ -1,0 +1,24 @@
+{% extends 'VelJoGHProjectBundle::index.html.twig' %}
+
+{% block container %}
+    <script>
+        $(document).ready(function(){
+            var linkLocation = document.URL;
+            var linkId = linkLocation.match(/\/article\/(.*)/)[1];
+            var path = Routing.generate('_ajax_update_article_views', { });
+
+            $.post(path,{ "id": linkId }, function(request){ });
+        });
+    </script>
+    {% if resultData.error is defined %}
+        <b>{{ resultData.error  }}</b>
+    {% else %}
+        {{ include ('VelJoGHProjectBundle:Modules:breadcrumbs.html.twig', {'sectionName': 'Articles', 'pageName': resultData.article.title}) }}
+        <div class="">
+            {{ include ('VelJoGHProjectBundle:Modules:articles_template.html.twig', {'posts': resultData}) }}
+            <hr />
+            {{ include ('FOSCommentBundle:Thread:async.html.twig', {'id': resultData.article.id}) }}
+            <hr />
+        </div>
+    {% endif %}
+{% endblock container %}

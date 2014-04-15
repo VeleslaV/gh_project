@@ -1,0 +1,31 @@
+<?php
+
+namespace VelJo\GHProjectBundle\Entity;
+
+use Doctrine\ORM\EntityRepository;
+
+class ArticleRepository extends EntityRepository
+{
+    public function findLatestArticlesLimit($limit)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a FROM VelJoGHProjectBundle:Article a ORDER BY a.id DESC')
+            ->setMaxResults($limit)
+            ->getResult();
+    }
+    public function findArticlesOffsetLimit($offset, $limit)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a FROM VelJoGHProjectBundle:Article a ORDER BY a.id DESC')
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
+            ->getResult();
+    }
+    public function findMostViewedArticlesLimit($limit)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a FROM VelJoGHProjectBundle:Article a ORDER BY a.views DESC')
+            ->setMaxResults($limit)
+            ->getResult();
+    }
+}

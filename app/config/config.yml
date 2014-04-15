@@ -2,10 +2,11 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @VelJoGHProjectBundle/Resources/config/services.xml }
+    - { resource: @VelJoGHProjectBundle/Resources/config/admin.xml }
 
 framework:
     #esi:            ~
-    translator:      ~
+    translator:      { fallback: %locale% }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -74,6 +75,55 @@ fos_comment:
             comment: VelJo\GHProjectBundle\Entity\Comment
             thread: VelJo\GHProjectBundle\Entity\Thread
 
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+
+    service:
+        mailer: fos_user.mailer.twig_swift
+
+    registration:
+        confirmation:
+            enabled:    true
+
+            from_email:
+                address:        robot@veljo.loc
+                sender_name:    VelJo Project Registration
+
+    resetting:
+        email:
+            from_email:
+                address:        robot@veljo.loc
+                sender_name:    VelJo Project Resetting
+
+hwi_oauth:
+    connect:
+        account_connector: social_user_provider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            facebook: facebookUid
+            google: googleUid
+
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "%facebook_app_id%"
+            client_secret:       "%facebook_app_secret_key%"
+            scope:               "email"
+        google:
+            type:                google
+            client_id:           "%google_client_id%"
+            client_secret:       "%google_client_secret%"
+            scope:               "email profile"
+
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -87,6 +137,7 @@ sonata_block:
 
         sonata.block.service.text:
         sonata.block.service.rss:
+        sonata.block.service.menu:
 
         # Some specific block from the SonataMediaBundle
         #sonata.media.block.media:
@@ -94,7 +145,7 @@ sonata_block:
         #sonata.media.block.feature_media:
 
 sonata_admin:
-    title:      VelJo GHProject Bundle
+    title:      GHProject Admin Area
     title_logo: bundles/veljoghproject/images/veljo_logo.png
 
     #security:
@@ -108,6 +159,40 @@ sonata_admin:
 
     # set to true to persist filter settings per admin module in the user's session
     persist_filters: false
+
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content:
+                        <h1>Welcome to the Admin Area</h1>
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener:          true
+    format_listener:        true
+    view:
+        view_response_listener: force
+    body_converter:
+        enabled: true
+        validate: true
+
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+    request: { converters: true }
+
+twig:
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+
+
+raindrop_sonata_theme:
+    theme: spacelab
 
 knp_menu:
     twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
@@ -153,6 +238,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
@@ -163,8 +250,11 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
+    disable_delivery:  false
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    port:      %mailer_port%
+    encryption: %mailer_encryption%
     spool:     { type: memory }

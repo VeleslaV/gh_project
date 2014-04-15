@@ -1,13 +1,43 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    {% if is_granted('ROLE_ADMIN') %}
+        <div id="admin_bar">
+            <div class="container">
+                <img src="{{ 'bundles/veljouser/images/slide.png' | imagine_filter('min_thumb') }}" class="" id="slideBtn">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <img src="{{ 'bundles/veljouser/images/settings.png' | imagine_filter('min_thumb') }}" class="settings_img">
+                    </li>
+                    <li {% if app.request.get('_route') == "sonata_admin_dashboard" %}class="active"{% endif %}>
+                        <a href="{{ path('sonata_admin_dashboard') }}" target="_blank">Admin dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
     <div class="container">
 
         <div class="navbar-header">
-            <a class="navbar-brand">VelJo Project</a>
+            <img src="{{ 'bundles/veljoghproject/images/veljo_logo.png' | imagine_filter('min_thumb') }}" class="logo_img">
+            <a href="{{ path('_main') }}" class="navbar-brand-new">VelJo Project</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li {% if app.request.get('_route') == "_main" %}class="active"{% endif %}>
                     <a href="{{ path('_main') }}">Home</a>
+                </li>
+                <li {% if app.request.get('_route') == "_about" %}class="active"{% endif %}>
+                    <a href="{{ path('_about') }}">About</a>
+                </li>
+                <li {% if app.request.get('_route') == "_contact" %}class="active"{% endif %}>
+                    <a href="{{ path('_contact') }}">Contact</a>
+                </li>
+                <li {% if app.request.get('_route') == "_gbook" %}class="active"{% endif %}>
+                    <a href="{{ path('_gbook') }}">Guest book</a>
+                <li>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="Sign in with Facebook">Facebook</a>
+                </li>
+                <li>
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" alt="Sign in with Google">Google</a>
                 </li>
             </ul>
             <div class="navbar-right">
@@ -15,7 +45,13 @@
             </div>
             <div class="navbar-right">
                 <div class="nav_user_data">
-
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {{ 'layout.logged_in_as'|trans({}, 'FOSUserBundle') }} <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> |
+                        <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a> |
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
