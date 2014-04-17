@@ -1,58 +1,65 @@
+_simple_main:
+  pattern: /
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: _main
+      permanent: true
+
 _main:
-      pattern: /
+      pattern: /{_locale}/
       defaults: {_controller: VelJoGHProjectBundle:Main:main}
 
 _news:
-      pattern: /news/
+      pattern: /{_locale}/news/
       defaults: {_controller: VelJoGHProjectBundle:Main:news}
 
 _about:
-      pattern: /about/
+      pattern: /{_locale}/about/
       defaults: {_controller: VelJoGHProjectBundle:Main:about}
 
 _contact:
-      pattern:  /contact/
+      pattern:  /{_locale}/contact/
       defaults: {_controller: VelJoGHProjectBundle:Main:contact}
             
 #######################################################################################################################
 
 _search:
-        pattern: /search/
+        pattern: /{_locale}/search/
         defaults: {_controller: VelJoGHProjectBundle:Main:searchForm}
 
 _search_band:
-        pattern:  /search/{band}/
+        pattern:  /{_locale}/search/{band}/
         defaults: {_controller: VelJoGHProjectBundle:Main:searchBandResult}
 
 _search_band_album:
-        pattern:  /search/{band}/{album}/
+        pattern:  /{_locale}/search/{band}/{album}/
         defaults: {_controller: VelJoGHProjectBundle:Main:searchAlbumResult}
 
 _search_band_album_song:
-        pattern:  /search/{band}/{album}/{song}/
+        pattern:  /{_locale}/search/{band}/{album}/{song}/
         defaults: {_controller: VelJoGHProjectBundle:Main:searchSongResult}
             
 #######################################################################################################################
 
 _comment:
-        pattern:  /comment/
+        pattern:  /{_locale}/comment/
         defaults: {_controller: VelJoGHProjectBundle:Main:oneComment}
 _single_comment:
-        pattern:  /comment/{cid}
+        pattern:  /{_locale}/comment/{cid}
         defaults: {_controller: VelJoGHProjectBundle:Main:oneComment}
         options:
             expose: true
 _post_success:
-        pattern:  /success/
+        pattern:  /{_locale}/success/
         defaults: {_controller: VelJoGHProjectBundle:Main:successAdd}
             
 #######################################################################################################################
 
 _article:
-        pattern:  /article/
+        pattern:  /{_locale}/article/
         defaults: {_controller: VelJoGHProjectBundle:Main:oneArticle}
 _single_article:
-        pattern:  /article/{aid}
+        pattern:  /{_locale}/article/{aid}
         defaults: {_controller: VelJoGHProjectBundle:Main:oneArticle}
         options:
             expose: true
@@ -60,25 +67,25 @@ _single_article:
 #######################################################################################################################
 
 _category:
-        pattern:  /category/
+        pattern:  /{_locale}/category/
         defaults: {_controller: VelJoGHProjectBundle:Main:oneCategory}
 _single_category:
-        pattern:  /category/{catid}
+        pattern:  /{_locale}/category/{catid}
         defaults: {_controller: VelJoGHProjectBundle:Main:oneCategory}
             
 #######################################################################################################################
 
 _tag:
-        pattern:  /tag/
+        pattern:  /{_locale}/tag/
         defaults: {_controller: VelJoGHProjectBundle:Main:oneTag}
 _single_tag:
-        pattern:  /tag/{tid}
+        pattern:  /{_locale}/tag/{tid}
         defaults: {_controller: VelJoGHProjectBundle:Main:oneTag}
             
 #######################################################################################################################
 
 _gbook:
-        pattern:  /gbook/
+        pattern:  /{_locale}/gbook/
         defaults: {_controller: VelJoGHProjectBundle:Main:gbook}
         options:
             expose: true
@@ -86,12 +93,12 @@ _gbook:
 #######################################################################################################################
 
 _ajax_update_article_views:
-        pattern:  /ajax/update/article_views/
+        pattern:  /{_locale}/ajax/update/article_views/
         defaults: { _controller: VelJoGHProjectBundle:Ajax:ajaxUpdateArticleViews }
         options:
             expose: true
 _load_more_article:
-        pattern:  /ajax/load_articles/{page}/
+        pattern:  /{_locale}/ajax/load_articles/{page}/
         defaults: {_controller: VelJoGHProjectBundle:Ajax:ajaxLoadMoreArticle}
         options:
             expose: true

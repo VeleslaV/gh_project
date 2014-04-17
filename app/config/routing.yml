@@ -1,10 +1,10 @@
 veljo_user:
     resource: "@ApplicationSonataUserBundle/Resources/config/routing.yml"
-    prefix:   /{_locale}/
+    prefix:   /
 
-veljo_ghproject:
+_veljo_ghproject:
     resource: "@VelJoGHProjectBundle/Resources/config/routing.yml"
-    prefix:   /{_locale}/
+    prefix:   /
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
