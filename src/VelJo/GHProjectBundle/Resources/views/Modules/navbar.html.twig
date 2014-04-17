@@ -50,8 +50,8 @@
                     {% endif %}
                 </div>
                 <div class="locales">
-                    <a href="{{ path(app.request.get('_route'), {'_locale':'uk'}) }}">UK</a>
-                    <a href="{{ path(app.request.get('_route'), {'_locale':'en'}) }}">EN</a>
+                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'uk'})) }}">UK</a>
+                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a>
                 </div>
             </div>
         </div>
